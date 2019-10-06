@@ -9,7 +9,7 @@ module.exports = function(RED) {
         RED.nodes.createNode(this, config);
 
         this.name = config.name;
-        this.close = config.close;
+        this.closeConversation = config.close_conversation;
 
         this.on('input', msg => {
             this.debug("GoogleHomeSendNode - Input Message Received");
