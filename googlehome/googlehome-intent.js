@@ -3,23 +3,23 @@ const Promise = require('promise');
 module.exports = function(RED) {
 
     function GoogleHomeIntentNode(config) {
-
-        RED.nodes.createNode(this, config);
-
         console.log("GoogleHomeIntentNode");
         console.log(config);
+
+        RED.nodes.createNode(this, config);
+        let flowContext = this.context().flow;
+        const app = flowContext.get("app");
+
+        if(app && app !== undefined){
+            this.send({
+              topic: "debug",
+              payload: "Habemos app"
+            });
+        }
 
         this.on('input', msg => {
             console.debug("GoogleHomeIntentNode - Input Message Received");
             console.log(msg);
-
-            if(msg && msg.topic == "googlehome-controller"){
-              this.app = msg.payload;
-              this.send({
-                topic: "debug",
-                payload: "App object received"
-              });
-            }
         });
 
         this.on('close', () => {
