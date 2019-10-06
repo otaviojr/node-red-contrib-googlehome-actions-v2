@@ -22,7 +22,7 @@ module.exports = function(RED) {
 
             if(msg && msg.topic == "googlehome-controller"){
                 let app = msg.payload.getApp();
-                this.app.intent(this.intent, conv => {
+                app.intent(this.intent, conv => {
                   this.ask.forEach( (c) => {
                     c(conv);
                   });
