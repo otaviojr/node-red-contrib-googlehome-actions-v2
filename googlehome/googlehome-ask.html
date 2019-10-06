@@ -1,0 +1,27 @@
+<script type="text/javascript">
+    RED.nodes.registerType('googlehome-ask',{
+      category: 'Google Assistant',
+      defaults: {
+          name: {value: ""},
+          ask: {value: "", required: true}
+      },
+      paletteLabel: "Ask",
+      icon: 'googlehome-ask.png',
+      outputs: 1,
+      inputs: 1,
+      label: function() {
+          return this.name || "Google Home Ask";
+      }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="googlehome-ask">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-ask"><i class="fa fa-tag"></i> Ask</label>
+        <input type="text" id="node-input-ask" placeholder="Ask">
+    </div>
+</script>
