@@ -10,6 +10,7 @@ module.exports = function(RED) {
 
         this.name = config.name;
         this.closeConversation = config.close_conversation;
+        this.closeMessage = config.close_message;
 
         this.on('input', msg => {
             this.debug("GoogleHomeSendNode - Input Message Received");
@@ -17,9 +18,13 @@ module.exports = function(RED) {
 
             if(msg && msg.conversation !== undefined){
 
-              this.conversation.messages.forEach( (m) => {
-                this.conversation.conv.ask(m);
+              msg.conversation.messages.forEach( (m, idx) => {
+                msg.conversation.conv.ask(m);
               });
+
+              if(this.closeConversation){
+                msg.conversation.conv.close(this.closeMessage);
+              }
             }
         });
 

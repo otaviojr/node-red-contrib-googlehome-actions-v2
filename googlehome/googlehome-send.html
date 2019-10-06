@@ -3,7 +3,8 @@
       category: 'Google Assistant',
       defaults: {
           name: {value: ""},
-          close_conversation: {value: false, required: true}
+          close_conversation: {value: false, required: true},
+          close_message: {value: "", required: true},
       },
       paletteLabel: "Send",
       icon: 'googlehome-send.png',
@@ -17,11 +18,15 @@
 
 <script type="text/x-red" data-template-name="googlehome-send">
     <div class="form-row">
-        <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
-        <input type="text" id="node-config-input-name" placeholder="Name">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-input-close_conversation"><i class="fa fa-tag"></i> Close Conversation</label>
+        <label for="node-input-close_conversation"><i class="fa fa-tag"></i> Close</label>
         <input type="checkbox" id="node-input-close_conversation" placeholder="Close">
+    </div>
+    <div class="form-row">
+        <label for="node-input-close_message"><i class="fa fa-tag"></i> Close Message</label>
+        <input type="checkbox" id="node-input-close_message" placeholder="Close Message">
     </div>
 </script>
