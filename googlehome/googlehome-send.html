@@ -1,27 +1,27 @@
 <script type="text/javascript">
-    RED.nodes.registerType('googlehome-ask',{
+    RED.nodes.registerType('googlehome-send',{
       category: 'Google Assistant',
       defaults: {
           name: {value: ""},
-          message: {value: "", required: true}
+          close: {value: false, required: true}
       },
-      paletteLabel: "Ask",
-      icon: 'googlehome-ask.png',
+      paletteLabel: "Send",
+      icon: 'googlehome-send.png',
       outputs: 1,
       inputs: 1,
       label: function() {
-          return this.name || "Google Home Ask";
+          return this.name || "Google Home Send";
       }
     });
 </script>
 
-<script type="text/x-red" data-template-name="googlehome-ask">
+<script type="text/x-red" data-template-name="googlehome-send">
     <div class="form-row">
         <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-config-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-input-message"><i class="fa fa-tag"></i> Message</label>
-        <input type="text" id="node-input-message" placeholder="Message">
+        <label for="node-input-ask"><i class="fa fa-tag"></i> Close Conversation</label>
+        <input type="checkbox" id="node-input-close" placeholder="Close">
     </div>
 </script>

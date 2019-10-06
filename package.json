@@ -14,6 +14,7 @@
       "googlehome-controller": "googlehome/googlehome-controller.js",
       "googlehome-intent": "googlehome/googlehome-intent.js",
       "googlehome-ask": "googlehome/googlehome-ask.js"
+      "googlehome-send": "googlehome/googlehome-send.js"
     }
   },
   "repository": {

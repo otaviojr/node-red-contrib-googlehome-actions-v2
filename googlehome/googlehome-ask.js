@@ -9,7 +9,7 @@ module.exports = function(RED) {
         RED.nodes.createNode(this, config);
 
         this.name = config.name;
-        this.ask = config.ask;
+        this.message = config.message;
 
         this.on('input', msg => {
             this.debug("GoogleHomeIntentNode - Input Message Received");
@@ -20,12 +20,12 @@ module.exports = function(RED) {
                 case "googlehome-intent":
                   let intent = msg.payload;
                   intent.registerAsk( (conv, params) => {
-                    //conv.ask(this.ask);
                     this.send({
                       topic: "conversation",
-                      payload: {
-                        ask: this.ask,
-                        conv: conv
+                      conversation: {
+                        messages: [this.message],
+                        conv: conv,
+                        params: params
                       }
                     }, false);
                   });
