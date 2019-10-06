@@ -18,7 +18,7 @@ module.exports = function(RED) {
         console.log(config);
 
         this.app = dialogflow();
-        flowContext.set("app");
+        flowContext.set("app",this.app);
 
         this.on('input', msg => {
             console.debug("GoogleHomeControllerNode - Input Message Received");
