@@ -10,10 +10,10 @@ module.exports = function(RED) {
         console.log(config);
 
         this.on('input', msg => {
-            console.debug("Input Message Received");
+            console.debug("GoogleHomeIntentNode - Input Message Received");
             console.log(msg);
 
-            if(msg && msg.topic === "googlehome-controller"){
+            if(msg && msg.topic == "googlehome-controller"){
               this.app = msg.payload;
               this.send({
                 topic: "debug",
