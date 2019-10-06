@@ -31,9 +31,7 @@
   "dependencies": {
     "jsbn": "^1.1.0",
     "promise": "^8.0.3",
-    "actions-on-google": "*",
-    "express": "*",
-    "body-parser": "*"
+    "actions-on-google": "^2.0.0"
   },
   "bundleDependencies": [],
   "contributors": [
