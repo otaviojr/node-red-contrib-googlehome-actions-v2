@@ -7,6 +7,8 @@ const {
   Carousel,
 } = require('actions-on-google');
 
+const events = require("../../red/red");
+
 module.exports = function(RED) {
 
     function GoogleHomeControllerNode(config) {
@@ -22,7 +24,9 @@ module.exports = function(RED) {
           return this.app;
         };
 
-        this.on('nodes-started', msg => {
+        events.on('nodes-started', msg => {
+          this.log("Sending Controller");
+
           this.send({
             topic: "googlehome-controller",
             payload: this

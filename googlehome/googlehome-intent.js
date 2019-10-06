@@ -16,16 +16,9 @@ module.exports = function(RED) {
           this.ask.push(ask);
         };
 
-        this.on('nodes-started', msg => {
-          this.send({
-            topic: "googlehome-intent",
-            payload: this
-          }, false);
-        });
-
         this.on('input', msg => {
-            console.debug("GoogleHomeIntentNode - Input Message Received");
-            console.log(msg);
+            this.debug("GoogleHomeIntentNode - Input Message Received");
+            this.log(msg);
 
             if(msg && msg.topic == "googlehome-controller"){
                 let app = msg.payload.getApp();
@@ -34,6 +27,11 @@ module.exports = function(RED) {
                     c(conv);
                   });
                 });
+
+                this.send({
+                  topic: "googlehome-intent",
+                  payload: this
+                }, false);
             }
         });
 

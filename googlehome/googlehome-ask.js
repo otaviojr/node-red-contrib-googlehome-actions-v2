@@ -11,8 +11,8 @@ module.exports = function(RED) {
         this.ask = config.ask;
 
         this.on('input', msg => {
-            console.debug("GoogleHomeIntentNode - Input Message Received");
-            console.log(msg);
+            this.debug("GoogleHomeIntentNode - Input Message Received");
+            this.log(msg);
 
             if(msg && msg.topic == "googlehome-intent"){
                 let intent = msg.payload;
