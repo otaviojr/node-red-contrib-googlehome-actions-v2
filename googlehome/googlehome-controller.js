@@ -16,6 +16,8 @@ module.exports = function(RED) {
         console.log("GoogleHomeControllerNode");
         console.log(config);
 
+        this.name = config.name;
+
         this.app = dialogflow();
 
         this.getApp = () => {

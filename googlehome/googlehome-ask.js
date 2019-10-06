@@ -8,17 +8,33 @@ module.exports = function(RED) {
 
         RED.nodes.createNode(this, config);
 
+        this.name = config.name;
         this.ask = config.ask;
 
         this.on('input', msg => {
             this.debug("GoogleHomeIntentNode - Input Message Received");
             this.log(msg);
 
-            if(msg && msg.topic == "googlehome-intent"){
-                let intent = msg.payload;
-                intent.registerAsk( (conv) => {
-                  conv.ask(this.ask);
-                });
+            if(msg && msg.topic !== undefined){
+              switch(msg.topic){
+                case "googlehome-intent":
+                  let intent = msg.payload;
+                  intent.registerAsk( (conv, params) => {
+                    //conv.ask(this.ask);
+                    this.send({
+                      topic: "conversation",
+                      payload: {
+                        ask: this.ask,
+                        conv: conv
+                      }
+                    }, false);
+                  });
+                  break;
+
+                case "ask":
+                  this.ask = msg.payload;
+                  break;
+              }
             }
         });
 

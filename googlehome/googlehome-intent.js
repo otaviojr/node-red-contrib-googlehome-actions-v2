@@ -8,6 +8,7 @@ module.exports = function(RED) {
 
         RED.nodes.createNode(this, config);
 
+        this.name = config.name;
         this.intent = config.intent;
 
         this.ask = [];
@@ -23,8 +24,9 @@ module.exports = function(RED) {
             if(msg && msg.topic == "googlehome-controller"){
                 let app = msg.payload.getApp();
                 app.intent(this.intent, conv => {
+                  const params = arguments;
                   this.ask.forEach( (c) => {
-                    c(conv);
+                    c(conv, params);
                   });
                 });
 
