@@ -19,6 +19,20 @@ module.exports = function(RED) {
 
         this.app = dialogflow();
         flowContext.set("app");
+
+        this.on('input', msg => {
+            console.debug("GoogleHomeControllerNode - Input Message Received");
+            console.log(msg);
+
+            if(msg && msg.req && msg.res){
+              this.app(msg.req, msg.res);
+            }
+        });
+
+        this.on('close', () => {
+            console.debug("Closed");
+        });
+
     }
 
     RED.nodes.registerType("googlehome-controller", GoogleHomeControllerNode);
