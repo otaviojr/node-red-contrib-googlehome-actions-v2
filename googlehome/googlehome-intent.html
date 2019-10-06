@@ -1,0 +1,27 @@
+<script type="text/javascript">
+    RED.nodes.registerType('googlehome-intent',{
+      category: 'Google Assistant',
+      defaults: {
+          controller: {value:"", type:"googlehome-controller"},
+          name: {value: ""},
+      },
+      paletteLabel: "Intent",
+      icon: 'googlehome-intent.png',
+      outputs: 1,
+      inputs: 0,
+      label: function() {
+          return this.name || "Google Home Intent";
+      }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="googlehome-intent">
+    <div class="form-row">
+        <label for="node-input-controller"><i class="fa fa-tag"></i> Controller</label>
+        <input type="text" id="node-input-controller">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Name">
+    </div>
+</script>

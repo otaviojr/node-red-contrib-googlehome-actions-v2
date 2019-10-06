@@ -1,0 +1,22 @@
+<script type="text/javascript">
+    RED.nodes.registerType('googlehome-controller',{
+      category: 'Google Assistant',
+      defaults: {
+          name: {value: ""},
+      },
+      paletteLabel: "Controller",
+      icon: 'googlehome.png',
+      outputs: 1,
+      inputs: 1,
+      label: function() {
+          return this.name || "Google Home Controller";
+      }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="googlehome-controller">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Name">
+    </div>
+</script>

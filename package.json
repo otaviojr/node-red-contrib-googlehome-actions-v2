@@ -1,0 +1,46 @@
+{
+  "name": "node-red-contrib-googlehome-actions-v2",
+  "version": "0.0.1",
+  "description": "Google Home Actions V2",
+  "main": "index.js",
+  "keywords": [
+    "node-red",
+    "googlehome",
+    "actions",
+    "dialogflow"
+  ],
+  "node-red": {
+    "nodes": {
+      "googlehome-controller": "smartthings/googlehome-controller.js",
+      "googlehome-intent": "smartthings/googlehome-intent.js",
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otaviojr/node-red-contrib-googlehome-actions-v2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/otaviojr/node-red-contrib-googlehome-actions-v2/issues"
+  },
+  "homepage": "https://github.com/otaviojr/node-red-contrib-googlehome-actions-v2",
+  "author": {
+    "name": "Otávio Ribeiro",
+    "email": "otavio.ribeiro@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "jsbn": "^1.1.0",
+    "promise": "^8.0.3",
+    "actions-on-google": "*",
+    "express": "*",
+    "body-parser": "*"
+  },
+  "bundleDependencies": [],
+  "contributors": [
+    {
+      "name": "Otávio Ribeiro",
+      "email": "otavio.ribeiro@gmail.com"
+    }
+  ],
+  "deprecated": false
+}
