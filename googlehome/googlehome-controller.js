@@ -25,18 +25,27 @@ module.exports = function(RED) {
         RED.events.on('nodes-started', msg => {
           this.log("Sending Controller");
 
-          this.send({
+          this.send([{
             topic: "googlehome-controller",
             payload: this
-          }, false);
+          }, null], false);
         });
 
         this.on('input', msg => {
             console.debug("GoogleHomeControllerNode - Input Message Received");
             console.log(msg);
 
-            if(msg && msg.req && msg.res){
-              this.app(msg.req, msg.res);
+            if(msg && msg.payload && msg.req){
+              this.app(msg.payload, msg.req.headers).then( (res) => {
+                this.send([null,{
+                  payload: res.body,
+                  headers: res.headers,
+                  statusCode: res.status
+                }]);
+              }).catch( (err) => {
+                this.log("ERROR");
+                this.log(err);
+              });
             }
         });
 
