@@ -10,10 +10,16 @@ module.exports = function(RED) {
         let flowContext = this.context().flow;
         const app = flowContext.get("app");
 
+        this.intent = config.intent;
+
         if(app && app !== undefined){
-            this.send({
-              topic: "debug",
-              payload: "Habemos app"
+            this.app.intent(this.intent, conv => {
+              this.send({
+                topic: "intent",
+                payload: {
+                  conv: conv
+                }
+              }, false);
             });
         }
 
