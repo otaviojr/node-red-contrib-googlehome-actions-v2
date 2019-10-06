@@ -35,12 +35,14 @@ module.exports = function(RED) {
             console.debug("GoogleHomeControllerNode - Input Message Received");
             console.log(msg);
 
-            if(msg && msg.payload && msg.req){
+            if(msg && msg.payload && msg.req && msg.res){
               this.app(msg.payload, msg.req.headers).then( (res) => {
                 this.send([null,{
                   payload: res.body,
                   headers: res.headers,
-                  statusCode: res.status
+                  statusCode: res.status,
+                  req: msg.req,
+                  res: msg.res
                 }]);
               }).catch( (err) => {
                 this.log("ERROR");
