@@ -19,6 +19,11 @@ module.exports = function(RED) {
         console.log(config);
 
         this.app = dialogflow();
+
+        this.send({
+          topic: "googlehome-controller",
+          payload: this.app
+        }, false);
     }
 
     RED.nodes.registerType("googlehome-controller", GoogleHomeControllerNode);
