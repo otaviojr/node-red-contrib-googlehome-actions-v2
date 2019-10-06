@@ -12,13 +12,22 @@ module.exports = function(RED) {
     function GoogleHomeControllerNode(config) {
 
         RED.nodes.createNode(this, config);
-        let flowContext = this.context().flow;
 
         console.log("GoogleHomeControllerNode");
         console.log(config);
 
         this.app = dialogflow();
-        flowContext.set("app",this.app);
+
+        this.getApp = () => {
+          return this.app;
+        };
+
+        this.on('nodes-started', msg => {
+          this.send({
+            topic: "googlehome-controller",
+            payload: this
+          }, false);
+        });
 
         this.on('input', msg => {
             console.debug("GoogleHomeControllerNode - Input Message Received");

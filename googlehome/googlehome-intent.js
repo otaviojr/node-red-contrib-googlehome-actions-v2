@@ -7,8 +7,6 @@ module.exports = function(RED) {
         console.log(config);
 
         RED.nodes.createNode(this, config);
-        let flowContext = this.context().flow;
-        let app = flowContext.get("app");
 
         this.intent = config.intent;
 
@@ -18,19 +16,25 @@ module.exports = function(RED) {
           this.ask.push(ask);
         };
 
-        flowContext.set("intent", this);
-
-        //if(app !== undefined){
-            this.app.intent(this.intent, conv => {
-              this.ask.forEach( (c) => {
-                c(conv);
-              });
-            });
-        //}
+        this.on('nodes-started', msg => {
+          this.send({
+            topic: "googlehome-intent",
+            payload: this
+          }, false);
+        });
 
         this.on('input', msg => {
             console.debug("GoogleHomeIntentNode - Input Message Received");
             console.log(msg);
+
+            if(msg && msg.topic == "googlehome-controller"){
+                let app = msg.payload.getApp();
+                this.app.intent(this.intent, conv => {
+                  this.ask.forEach( (c) => {
+                    c(conv);
+                  });
+                });
+            }
         });
 
         this.on('close', () => {
