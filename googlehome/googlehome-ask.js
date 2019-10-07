@@ -25,6 +25,7 @@ module.exports = function(RED) {
                       res: {
                         conv: (msg) => {
                           this.warn("acabou!");
+                          conv.ask(msg);
                         },
                         params: params
                       },
