@@ -39,9 +39,9 @@ module.exports = function(RED) {
 
             if(msg && msg.payload && msg.req && msg.res){
               this.app(msg.payload, msg.req.headers).then( (res) => {
-                node.warn("Finish Intent");
-                node.warn(res);
-                
+                this.warn("Finish Intent");
+                this.warn(res);
+
                 this.send([null,{
                   payload: res.body,
                   headers: res.headers,
