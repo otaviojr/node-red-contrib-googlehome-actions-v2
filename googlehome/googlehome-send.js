@@ -16,14 +16,16 @@ module.exports = function(RED) {
             this.debug("GoogleHomeSendNode - Input Message Received");
             this.log(msg);
 
-            if(msg && msg.conversation !== undefined){
+            if(msg && msg.gh_conversation !== undefined){
 
-              msg.conversation.messages.forEach( (m, idx) => {
-                msg.conversation.conv.ask(m);
-              });
+              if(msg.gh_messages && msg.gh_messages.length > 0){
+                msg.gh_messages.forEach( (m, idx) => {
+                  msg.gh_conversation.conv.ask(m);
+                });                
+              }
 
               if(this.closeConversation){
-                msg.conversation.conv.close(this.closeMessage);
+                msg.gh_conversation.conv.close(this.closeMessage);
               }
             }
         });

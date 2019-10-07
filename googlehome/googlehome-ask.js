@@ -22,11 +22,11 @@ module.exports = function(RED) {
                   intent.registerAsk( (conv, params) => {
                     this.send({
                       topic: "conversation",
-                      conversation: {
-                        messages: [this.message],
+                      gh_conversation: {
                         conv: conv,
                         params: params
-                      }
+                      },
+                      gh_messages: [this.message]
                     }, false);
                   });
                   break;
