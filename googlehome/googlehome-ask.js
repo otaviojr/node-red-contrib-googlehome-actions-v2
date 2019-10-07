@@ -23,12 +23,14 @@ module.exports = function(RED) {
                     this.send({
                       topic: "conversation",
                       res: {
-                        conv: conv,
+                        conv: (msg) => {
+                          this.warn("acabou!");
+                        },
                         params: params
                       },
                       gh_messages: [this.message]
                     },true);
-                  });
+                  },false);
                   break;
 
                 case "ask":
