@@ -22,7 +22,7 @@ module.exports = function(RED) {
                   intent.registerAsk( (conv, params) => {
                     this.send({
                       topic: "conversation",
-                      gh_conversation: {
+                      res: {
                         conv: conv,
                         params: params
                       },
