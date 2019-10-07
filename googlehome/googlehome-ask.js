@@ -30,7 +30,7 @@ module.exports = function(RED) {
                         params: params
                       },
                       gh_messages: [this.message]
-                    },true);
+                    },false);
                   },false);
                   break;
 
