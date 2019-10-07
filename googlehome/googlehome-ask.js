@@ -31,7 +31,7 @@ module.exports = function(RED) {
                       },
                       gh_messages: [this.message]
                     },false);
-                  },false);
+                  });
                   break;
 
                 case "ask":
