@@ -26,8 +26,14 @@ module.exports = function(RED) {
                 this.app.intent(this.intent, conv => {
                   return new Promise( (resolv, reject) => {
                     const params = arguments;
+                    let count = 0;
                     this.ask.forEach( (c) => {
-                      c(conv, params, resolv, reject);
+                      c(conv, params, resolv, reject).then( () => {
+                        count ++;
+                        if(count == this.ask.length){
+                          resolv();
+                        }
+                      });
                     });
                   });
                 });

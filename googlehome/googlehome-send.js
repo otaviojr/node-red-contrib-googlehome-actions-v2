@@ -27,6 +27,8 @@ module.exports = function(RED) {
               if(this.closeConversation){
                 msg.res.conv.close(this.closeMessage);
               }
+
+              msg.res.resolv();
             }
         });
 

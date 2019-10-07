@@ -19,17 +19,19 @@ module.exports = function(RED) {
               switch(msg.topic){
                 case "googlehome-intent":
                   let intent = msg.payload;
-                  intent.registerAsk( (conv, params, resolv, reject) => {
-                    this.send({
-                      topic: "conversation",
-                      res: {
-                        conv: conv,
-                        resolv: resolv,
-                        reject: reject,
-                        params: params
-                      },
-                      gh_messages: [this.message]
-                    },false);
+                  intent.registerAsk( (conv, params) => {
+                    return new Promise( (resolv, reject) => {
+                      this.send({
+                        topic: "conversation",
+                        res: {
+                          conv: conv,
+                          resolv: resolv,
+                          reject: reject,
+                          params: params
+                        },
+                        gh_messages: [this.message]
+                      },false);
+                    });
                   });
                   break;
 
