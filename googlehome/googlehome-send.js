@@ -9,7 +9,7 @@ const {
   LinkOutSuggestion,
   HtmlResponse,
   OpenUrlAction,
-  BrowseCarouselItem
+  BrowseCarousel
 } = require('actions-on-google');
 
 module.exports = function(RED) {
