@@ -49,13 +49,22 @@
    <p>An intent node can have one or more Ask Nodes.</p>
    <p>An Ask Node initialize the response object that will be used for the Send Node later to complete the dialog.</p>
    <p>To change the response that will be send change the <code>msg.gh_messages</code></p>
-   <p><code>msg.gh_messages</code> formats:</p>
+   <p><code>msg.gh_messages</code> array items formats:</p>
    <p></p>
    <p>Simple Response</p>
    <p><code>
        {
            "type": "SimpleResponse",
            "message": "Your Message here"
+       }
+   </code></p>
+   <p>LinkOutSuggestion</p>
+   <p><code>
+       {
+           "type": "link",
+           "message": {
+               "url": "<<url>>"
+           }
        }
    </code></p>
    <p></p>
