@@ -9,7 +9,7 @@
       outputs: 2,
       inputs: 1,
       label: function() {
-          return this.name || "Google Home Controller";
+          return "Controller (" + this.name + ")" || "Google Home Controller";
       }
     });
 </script>
@@ -19,4 +19,22 @@
         <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
+</script>
+
+<script type="text/x-red" data-help-name="node-type">
+   <p>This is the Google Home Controller.</p>
+   <h3>Input</h3>
+      <p>It must be connected at a http POST request. The same it will be informed at DialogFlow fulfillment.</p>
+   <h3>Outputs</h3>
+      <ol class="node-ports">
+         <li>First output
+           <p>It must be directly connected on one or more Intent Nodes</p>
+         </li>
+         <li>Second Output
+            <p>It must be connected at a http response node</p>
+         </li>
+      </ol>
+   <h3>Details</h3>
+   <p>This is the first node to be created on the flow. It will control Google Home API, initialize intents and Answers.</p>
+   <p>Intents will be connected to him.</p>
 </script>
