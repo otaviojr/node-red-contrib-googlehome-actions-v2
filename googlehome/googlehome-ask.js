@@ -29,14 +29,16 @@ module.exports = function(RED) {
                           reject: reject,
                           params: params
                         },
-                        gh_messages: [this.message]
+                        gh_messages: [{
+                            type: "SimpleResponse",
+                            message: this.message}]
                       },false);
                     });
                   });
                   break;
 
-                case "ask":
-                  this.ask = msg.payload;
+                case "message":
+                  this.message = msg.payload;
                   break;
               }
             }

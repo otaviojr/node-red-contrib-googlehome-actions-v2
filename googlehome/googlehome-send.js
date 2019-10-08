@@ -1,5 +1,13 @@
 const Promise = require('promise');
 
+const {
+  dialogflow,
+  actionssdk,
+  Image,
+  Table,
+  Carousel,
+} = require('actions-on-google');
+
 module.exports = function(RED) {
 
     function GoogleHomeSendNode(config) {
@@ -20,7 +28,25 @@ module.exports = function(RED) {
 
               if(msg.gh_messages && msg.gh_messages.length > 0){
                 msg.gh_messages.forEach( (m, idx) => {
-                  msg.res.conv.ask(m);
+                    if(m.type !== undefined){
+                        switch(m.type.toLowerCase()){
+                            case "simpleresponse":
+                                msg.res.conv.ask(m.message);
+                                break;
+
+                            case "carousel":
+                                msg.res.conv.ask(new Carousel(m.items));
+                                break;
+
+                            case "image":
+                                msg.res.conv.ask(new Carousel(m.image));
+                                break;
+
+                            case "table":
+                                msg.res.conv.ask(new Table(m.table));
+                                break;
+                        }
+                    }
                 });
               }
 
