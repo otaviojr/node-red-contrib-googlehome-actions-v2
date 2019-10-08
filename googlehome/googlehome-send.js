@@ -6,6 +6,7 @@ const {
   Image,
   Table,
   Carousel,
+  LinkOutSuggestion
 } = require('actions-on-google');
 
 module.exports = function(RED) {
@@ -39,11 +40,15 @@ module.exports = function(RED) {
                                 break;
 
                             case "image":
-                                msg.res.conv.ask(new Carousel(m.image));
+                                msg.res.conv.ask(new Image(m.image));
                                 break;
 
                             case "table":
                                 msg.res.conv.ask(new Table(m.table));
+                                break;
+
+                            case "link":
+                                msg.res.conv.ask(new LinkOutSuggestion(m.link));
                                 break;
                         }
                     }
