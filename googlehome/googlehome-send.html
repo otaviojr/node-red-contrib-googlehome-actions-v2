@@ -30,3 +30,41 @@
         <input type="text" id="node-input-close_message" placeholder="Close Message">
     </div>
 </script>
+<script type="text/x-red" data-help-name="googlehome-send">
+   <p>This node finish the conversation sending all answers back to Google Assistant.</p>
+   <p>The <code>close</code> and <code>close message</code> property in the node editor tells to close or not the conversation. Close the conversation stop the app running on the device.</p>
+   <h3>Input</h3>
+   <ol class="node-ports">
+      <li>Answer
+          <dl class="message-properties">
+          <dl class="message-properties">
+              <dt>msg.gh_messages <span class="property-type">array</span></dt>
+              <dd>An array of messages objects that will be sent to google assistant as an answer.</dd>
+          </dl>
+      </li>
+   </ol>
+   <h3>Details</h3>
+   <p>A send node should be at the end of the process. It will get all messages and send back to google.</p>
+   <p>To change the response that will be sent, change the <code>msg.gh_messages</code> before this node.</p>
+   <p><code>msg.gh_messages</code> array items formats:</p>
+   <p></p>
+   <p>Simple Response</p>
+   <p><code>
+       {
+           "type": "SimpleResponse",
+           "message": "Your Message here"
+       }
+   </code></p>
+   <p>LinkOutSuggestion</p>
+   <p><code>
+       {
+           "type": "link",
+           "message": {
+               "url": "https://example.com"
+           }
+       }
+   </code></p>
+   <p></p>
+   <p>Another responses are supported, you can look at source code or wait me to document them.</p>
+   <p>Carousel, Image, Table, LinkOutSuggestion</p>
+</script>
