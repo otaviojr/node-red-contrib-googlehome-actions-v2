@@ -23,11 +23,13 @@ module.exports = function(RED) {
                     return new Promise( (resolv, reject) => {
                       this.send({
                         topic: "conversation",
+                        req: {
+                            params: params
+                        },
                         res: {
                           conv: conv,
                           resolv: resolv,
-                          reject: reject,
-                          params: params
+                          reject: reject
                         },
                         gh_messages: [{
                             type: "SimpleResponse",

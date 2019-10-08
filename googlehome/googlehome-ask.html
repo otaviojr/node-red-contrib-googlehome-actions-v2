@@ -25,3 +25,40 @@
         <input type="text" id="node-input-message" placeholder="Message">
     </div>
 </script>
+
+<script type="text/x-red" data-help-name="googlehome-ask">
+   <p>This node represents an answer to an intent.</p>
+   <p>The <b>message</b> property at node editor is the default answer. It can be changed latter after processing the request.</p>
+   <h3>Input</h3>
+      <p>It must be connected to an Intent Node created before.</p>
+   <h3>Outputs</h3>
+      <ol class="node-ports">
+         <li>Request Message/Default Answer
+             <dl class="message-properties">
+                 <dt>msg.req.params <span class="property-type">array</span></dt>
+                 <dd>The intent parameters.</dd>
+             </dl>
+             <dl class="message-properties">
+                 <dt>msg.gh_messages <span class="property-type">array</span></dt>
+                 <dd>An array of messages objects that will be send to google assistant as an answer.
+                     Initialy it has the default response, but it can be changed after processing the request</dd>
+             </dl>
+         </li>
+      </ol>
+   <h3>Details</h3>
+   <p>An intent node can have one or more Ask Nodes.</p>
+   <p>An Ask Node initialize the response object that will be used for the Send Node later to complete the dialog.</p>
+   <p>To change the response that will be send change the <code>msg.gh_messages</code></p>
+   <p><code>msg.gh_messages</code> formats:</p>
+   <p></p>
+   <p>Simple Response</p>
+   <p><code>
+       {
+           "type": "SimpleResponse",
+           "message": "Your Message here"
+       }
+   </code></p>
+   <p></p>
+   <p>Another responses are supported, you can look at source code or wait me to document them.</p>
+   <p>Carousel, Image, Table, LinkOutSuggestion</p>
+</script>
