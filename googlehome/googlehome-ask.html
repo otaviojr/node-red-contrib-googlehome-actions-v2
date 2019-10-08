@@ -28,7 +28,7 @@
 
 <script type="text/x-red" data-help-name="googlehome-ask">
    <p>This node represents an answer to an intent.</p>
-   <p>The <b>message</b> property in node editor is the default answer. It can be changed latter after processing the request.</p>
+   <p>The <b>message</b> property in the node editor is the default answer. It can be changed later, after processing the request.</p>
    <h3>Input</h3>
       <p>It must be connected to an Intent Node created before.</p>
    <h3>Outputs</h3>
@@ -40,15 +40,15 @@
              </dl>
              <dl class="message-properties">
                  <dt>msg.gh_messages <span class="property-type">array</span></dt>
-                 <dd>An array of messages objects that will be send to google assistant as an answer.
+                 <dd>An array of messages objects that will be sent to google assistant as an answer.
                      Initialy it has the default response, but it can be changed after processing the request</dd>
              </dl>
          </li>
       </ol>
    <h3>Details</h3>
    <p>An intent node can have one or more Ask Nodes.</p>
-   <p>An Ask Node initialize the response object that will be used for the Send Node later to complete the dialog.</p>
-   <p>To change the response that will be send change the <code>msg.gh_messages</code></p>
+   <p>An Ask Node initialize the response object that will be used later by the Send Node to complete the dialog.</p>
+   <p>To change the response that will be sent, change the <code>msg.gh_messages</code></p>
    <p><code>msg.gh_messages</code> array items formats:</p>
    <p></p>
    <p>Simple Response</p>
