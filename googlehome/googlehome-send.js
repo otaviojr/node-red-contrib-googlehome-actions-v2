@@ -63,7 +63,7 @@ module.exports = function(RED) {
                                 break;
 
                             case "browse":
-                                msg.res.conv.ask(new BrowseCarouselItem(m.link));
+                                msg.res.conv.ask(new BrowseCarousel(m.link));
                                 break;
                         }
                     }
