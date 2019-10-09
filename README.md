@@ -51,6 +51,12 @@ Below some examples:
     "message": {
         "url": "https://example.com"    
     }
+},{
+    "type": "permission",
+    "permission": {
+        "context": "I need to know your name.",
+        "permissions": ["NAME"]
+    }
 }]
 ```
 
