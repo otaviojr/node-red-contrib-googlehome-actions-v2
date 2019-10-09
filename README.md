@@ -23,7 +23,7 @@ A **Controller Node** must have a **Http Request Node** at its input and **Http 
 
 The **Http Request Node** must have been configured to receive a POST event in the same path you have configured at fulfillment section of dialog flow console.
 
-A **Controller Node** must have all **Intent Nodes** connected directly to itself. You must create as much **Intent Nodes**
+A **Controller Node** must have all **Intent Nodes** connected directly to itself. At the first output, always. You must create as much **Intent Nodes**
 as you have created them at dialog flow console.
 
 Every **Intent Node** will have at least one **Ask Node**. It can have more. The **Ask Node** have a message property that will
