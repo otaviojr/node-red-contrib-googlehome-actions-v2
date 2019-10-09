@@ -2,6 +2,10 @@
 
 Node Red nodes to receive and respond to Google Action requests from Google Assistant.
 
+It will create the webhook you need without any coding or at least with the fewest lines of code possible. :-)
+
+Right now it is only compatible with [DialogFlow](https://dialogflow.com/) applications.
+
 This node is a wrapper around Google's actions-on-google-nodejs client library using the [Actions SDK](https://actions-on-google.github.io/actions-on-google-nodejs/2.12.0/index.html).
 
 This node will use the **Http Request and Response Nodes** working at the same URL NodeRed is running.
@@ -16,6 +20,8 @@ The default design of a flow using this plugin will be like the image below:
 ![node-red-contrib-googlehome-actions-v2 architecture](/design.png?raw=true "node-red-contrib-googlehome-actions-v2 architecture")
 
 A **Controller Node** must have a **Http Request Node** at its input and **Http Response Node** at its second output. Always.
+
+The **Http Request Node** must have been configured to receive a POST event in the same path you have configured at fulfillment section of dialog flow console.
 
 A **Controller Node** must have all **Intent Nodes** connected directly to itself. You must create as much **Intent Nodes**
 as you have created them at dialog flow console.
