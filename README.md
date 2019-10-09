@@ -2,7 +2,7 @@
 
 Node Red nodes to receive and respond to Google Action requests from Google Assistant.
 
-It will create the webhook you need without any coding or at least with the fewest lines of code possible. :-)
+It will create the webhooks you need without any coding or at least with the fewest lines of code possible. :-)
 
 Right now it is only compatible with [DialogFlow](https://dialogflow.com/) applications.
 
