@@ -29,8 +29,9 @@ as you have created at dialog flow console.
 Every **Intent Node** will have at least one **Ask Node**. It can have more. The **Ask Node** have a message property that will
 define the default answer to the intent. It can be changed later.
 
-At **Ask Node** output comes the logic you need to answer the question. You can use the ```msg.req.params``` to get all parameters sent by
-Google Home and use them to process your answer.
+At **Ask Node** output comes the logic you need to answer the question. You can use the ```msg.req.params``` to get all parameters sent by Google Home and use them to process your answer. You can get access to the conv object
+at any time using the ```msg.res.conv``` property. So, if you want to know if a user is verified you can check the
+```msg.res.conv.user.verification``` property.
 
 After your logic you must put all answers on the ```msg.gh_messages```. This is an array of answers that will be sent back
 to google home by the **Send Node**.
