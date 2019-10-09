@@ -37,7 +37,7 @@ to google home by the **Send Node**.
 
 The last node is the **Send Node**. It will get the ```msg.gh_messages``` and finish the conversation.
 
-The ```msg.gh_messages``` is an array of messages objects. Each item has its own format depending of the type of the answers.
+The ```msg.gh_messages``` is an array of messages objects. Each item has its own format depending of the type of the answer.
 
 Below some examples:
 
