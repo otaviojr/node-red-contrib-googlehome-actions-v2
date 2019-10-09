@@ -31,6 +31,22 @@ The last node is the **Send Node**. It will get the ```msg.gh_messages``` and fi
 
 Simple like that. You can use any NodeRed nodes you want to make your logic and assembly your messages.
 
+The ```msg.gh_messages``` is an array of messages objects. Each item has its own format depending of the type of the answers.
+
+Below some examples:
+
+```
+[{
+    "type": "SimpleResponse",
+    "message": "Your Message here"
+},{
+    "type": "link",
+    "message": {
+        "url": "https://example.com"    
+    }
+}]
+```
+
 Enjoy!
 
 # Installing
