@@ -105,8 +105,8 @@ has been granted or not.
 ![permission status](/permission_status.png?raw=true "Permission Status")
 
 If user granted it, you can check context to know to which timeline send this request.
-At permission event on DialogFlow console you must set an output context. This context
-will be at input context at NodeRed.
+At permission event on DialogFlow Console you must set an output context. This context
+will be an input context at NodeRed.
 
 ![context](/context.png?raw=true "Context")
 
