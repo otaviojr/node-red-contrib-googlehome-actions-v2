@@ -13,21 +13,21 @@ The default design of a flow using this plugin will be like the image below:
 
 ![node-red-contrib-googlehome-actions-v2 architecture](/design.png?raw=true "node-red-contrib-googlehome-actions-v2 architecture")
 
-A controller must have a http request node at its input and http response node at its second output. Always.
+A **Controller Node** must have a **Http Request Node** at its input and **Http Response Node** at its second output. Always.
 
-A controller must have all intent nodes connected directly to itself. You must create as much intent nodes
+A **Controller Node** must have all **Intent Nodes** connected directly to itself. You must create as much **Intent Nodes**
 as you have created them at dialog flow console.
 
-Every intent node will have at least one Ask Node. It can have more. The Ask Node have a message property that will
+Every **Intent Node** will have at least one **Ask Node**. It can have more. The **Ask Node** have a message property that will
 define the default answer to the intent. It can be changed later.
 
-At Ask Node output comes the logic you need to answer the question. You can use the msg.req.params to get all parameters sent by
+At **Ask Node** output comes the logic you need to answer the question. You can use the ```msg.req.params``` to get all parameters sent by
 Google Home and use them to process your answer.
 
-After your logic you must put all answers on the msg.gh_messages. This is an array of answers that will be sent back
-to google home by the Send Node.
+After your logic you must put all answers on the ```msg.gh_messages```. This is an array of answers that will be sent back
+to google home by the **Send Node**.
 
-The last node is the Send Node. It will get the msg.gh_messages and finish the conversation.
+The last node is the **Send Node**. It will get the ```msg.gh_messages``` and finish the conversation.
 
 Simple like that. You can use any NodeRed nodes you want to make your logic and assembly your messages.
 
