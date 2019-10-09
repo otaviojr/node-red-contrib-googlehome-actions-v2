@@ -4,10 +4,12 @@ Node Red nodes to receive and respond to Google Action requests from Google Assi
 
 This node is a wrapper around Google's actions-on-google-nodejs client library using the [Actions SDK](https://actions-on-google.github.io/actions-on-google-nodejs/2.12.0/index.html).
 
-This node will use the http request and response nodes responding at the same URL NodeRed is running.
+This node will use the **Http Request and Response Nodes** working at the same URL NodeRed is running.
 Other plugins have been using Express to open another port in order to secure NodeRed. Now a days we have
 enough tech to protect NodeRed. We can use nginx or apache as reverse proxy or even API gateways like Kong
 to obfuscate the URL's we don't want access.
+
+**NodeRed must be running with a public address and HTTPS in order to work with Google Home SDKs**
 
 The default design of a flow using this plugin will be like the image below:
 
