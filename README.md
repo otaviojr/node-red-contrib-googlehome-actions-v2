@@ -17,7 +17,7 @@ to obfuscate the URL's we don't want access.
 
 The default design of a flow using this plugin will be like the image below:
 
-![node-red-contrib-googlehome-actions-v2 architecture](/design.png?raw=true "node-red-contrib-googlehome-actions-v2 architecture")
+![node-red-contrib-googlehome-actions-v2 architecture](/docs/design.png?raw=true "node-red-contrib-googlehome-actions-v2 architecture")
 
 A **Controller Node** must have a **Http Request Node** at its input and **Http Response Node** at its second output. Always.
 
@@ -78,22 +78,22 @@ or add to your package.json
 
 The nodes will appears at NodeRed like this:
 
-![NodeRed Google Assistant menu](/menu.png?raw=true "NodeRed Google Assistant menu")
+![NodeRed Google Assistant menu](/docs/menu.png?raw=true "NodeRed Google Assistant menu")
 
 # Advanced
 
 Here we have a flow asking for user permission so we can have access to his name.
 We use output context to know to which timeline goes back after permission.
 
-![permission flow](/permission.png?raw=true "permission flow")
+![permission flow](/docs/permission.png?raw=true "permission flow")
 
 First we can check if we have or not the name using a **Switch Node**
 
-![check name](/check_name.png?raw=true "Check Name")
+![check name](/docs/check_name.png?raw=true "Check Name")
 
 If we don't we can use a **Template Node** to request permissions
 
-![request permission](/request_permission.png?raw=true "Request Permission")
+![request permission](/docs/request_permission.png?raw=true "Request Permission")
 
 At DialogFlow Console you have to create an intent to the permission event. Than,
 at NodeRed, you have to create the same intent. This intent will be used when the
@@ -102,17 +102,17 @@ permission has been granted or denied.
 At this permission intent you can use a **Switch Node** to check if the name permission
 has been granted or not.
 
-![permission status](/permission_status.png?raw=true "Permission Status")
+![permission status](/docs/permission_status.png?raw=true "Permission Status")
 
 If user granted it, you can check context to know to which timeline send this request.
 At permission event on DialogFlow Console you must set an output context. This context
 will be an input context at NodeRed.
 
-![context](/context.png?raw=true "Context")
+![context](/docs/context.png?raw=true "Context")
 
 Now you can just connect the output from this switch to the first one we created.
 The name will be there and you can just say the name using a **Template Node**
 
-![say](/say.png?raw=true "Say")
+![say](/docs/say.png?raw=true "Say")
 
 That's it... a more complex scenario... no coding... at all!
