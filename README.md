@@ -95,8 +95,8 @@ If we don't we can use a **Template Node** to request permissions
 
 ![request permission](/request_permission.png?raw=true "Request Permission")
 
-At DialogFlow console you have to create an intent to the permission event. Than,
-at nodered, you have to create the same intent. This intent will be used when the
+At DialogFlow Console you have to create an intent to the permission event. Than,
+at NodeRed, you have to create the same intent. This intent will be used when the
 permission has been granted or denied.
 
 At this permission intent you can use a **Switch Node** to check if the name permission
