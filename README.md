@@ -35,11 +35,15 @@ Enjoy!
 
 # Installing
 
+```
 npm install git+https://git@github.com/otaviojr/node-red-contrib-googlehome-actions-v2
+```
 
 or add to your package.json
 
+```
 "node-red-contrib-googlehome-actions-v2": "https://github.com/otaviojr/node-red-contrib-googlehome-actions-v2.git"
+```
 
 The nodes will appears at NodeRed like this:
 
