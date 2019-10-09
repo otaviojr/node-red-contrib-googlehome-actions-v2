@@ -79,3 +79,33 @@ or add to your package.json
 The nodes will appears at NodeRed like this:
 
 ![NodeRed Google Assistant menu](/menu.png?raw=true "NodeRed Google Assistant menu")
+
+# Advanced
+
+Here we have a flow asking for user permission so we can have access to his name.
+We use output context to know to which timeline goes back after permission.
+
+![permission flow](/permission.png?raw=true "permission flow")
+
+First we can check if we have or not the name using a **Switch Node**
+
+![check name](/check_name.png?raw=true "Check Name")
+
+If we don't we can use a **Template Node** to request permissions
+
+![request permission](/request_permission.png?raw=true "Request Permission")
+
+At DialogFlow console you have to create an intent to the permission event. Than,
+at nodered, you have to create the same intent. This intent will be used when the
+permission has been granted or denied.
+
+At this permission intent you can use a **Switch Node** to check if the name permission
+has been granted or not.
+
+![permission status](/permission_status.png?raw=true "Permission Status")
+
+If user granted it, you can check context to know to which timeline send this request.
+At permission event on DialogFlow console you must set an output context. This context
+will be at input context at NodeRed.
+
+![context](/context.png?raw=true "Context")
