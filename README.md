@@ -109,3 +109,10 @@ At permission event on DialogFlow console you must set an output context. This c
 will be at input context at NodeRed.
 
 ![context](/context.png?raw=true "Context")
+
+Now you can just connect the output from this switch to the first one we created.
+The name will be there and you can just say the name using a **Template Node**
+
+![say](/say.png?raw=true "Say")
+
+That is it... a more complex scenario... no coding... at all!
