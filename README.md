@@ -10,6 +10,7 @@ Right now it is only compatible with [DialogFlow](https://dialogflow.com/) appli
 This node is a wrapper around Google's actions-on-google-nodejs client library using the [Actions SDK](https://actions-on-google.github.io/actions-on-google-nodejs/2.12.0/index.html).
 
 It will use the **Http Request and Response Nodes**, responding at the same URL NodeRed is running.
+
 Other plugins have been using Express to open another port in order to secure NodeRed. Now a days we have
 enough tech to protect NodeRed. We can use nginx or apache as reverse proxy or even API gateways like Kong
 to obfuscate the URL's we don't want to be publicly available.
