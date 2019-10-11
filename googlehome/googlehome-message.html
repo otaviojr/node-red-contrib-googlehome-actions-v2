@@ -1,0 +1,38 @@
+<script type="text/javascript">
+    RED.nodes.registerType('googlehome-message',{
+      category: 'Google Assistant',
+      defaults: {
+          name: {value: ""},
+          message_type: {value: ""},
+          concat_message: {value: false},
+      },
+      paletteLabel: "Message",
+      icon: 'googlehome-message.png',
+      outputs: 1,
+      inputs: 1,
+      label: function() {
+          return "Send (" + this.name + ")" || "Google Home Send";
+      }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="googlehome-message">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-message_type"><i class="fa fa-tag"></i> Message Type</label>
+        <select type="text" id="node-input-message_type" style="display: inline-block; width: 70%;">
+    		  <option value="empty"></option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-concat_message"><i class="fa fa-tag"></i> Concat</label>
+        <input type="checkbox" id="node-input-concat_message" placeholder="Concat">
+    </div>
+    <div class="form-row">
+        <label for="node-input-concat_message"><i class="fa fa-tag"></i> Concat Message</label>
+        <input type="text" id="node-input-concat_message" placeholder="Concat Message">
+    </div>
+</script>
