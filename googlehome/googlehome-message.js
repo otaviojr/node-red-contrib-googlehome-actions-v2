@@ -36,16 +36,16 @@ module.exports = function(RED) {
             switch(this.messageType){
                 case "SimpleResponse":
                     obj = {
-                        "type": "SimpleResponse",
-                        "Message": this.message
+                        type: "SimpleResponse",
+                        Message: this.message
                     };
                     break;
 
                 case "LinkOutSuggestion":
                     obj = {
-                        "type": "link",
-                        "message": {
-                            "url": this.url
+                        type: "link",
+                        message: {
+                            url: this.url
                         }
                     };
                     break;
@@ -53,10 +53,10 @@ module.exports = function(RED) {
                 case "Permission":
                     if(this.permissions.length > 0){
                         obj = {
-                            "type": "permission",
-                            "permission": {
-                                "context": this.message,
-                                "permissions": this.permissions.split(",");
+                            type: "permission",
+                            permission: {
+                                context: this.message,
+                                permissions: this.permissions.split(",");
                             }
                         };
                     }
@@ -66,7 +66,7 @@ module.exports = function(RED) {
             if(obj != null){
                 if(this.concatMessage){
                     if(Array.isArray(msg.gh_messages)){
-                        msg.gh_messages.push(obj);                        
+                        msg.gh_messages.push(obj);
                     }
                 } else {
                     msg.gh_messages = [obj];
