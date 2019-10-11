@@ -12,6 +12,9 @@
       inputs: 1,
       label: function() {
           return (this.name !== "" ? "Send (" + this.name + ")" : "Google Home Send");
+      },
+      oneditprepare: function(){
+        //TODO: Hide close message if not closing the conversation
       }
     });
 </script>
@@ -23,7 +26,7 @@
     </div>
     <div class="form-row">
         <label for="node-input-close_conversation"><i class="fa fa-tag"></i> Close</label>
-        <input type="checkbox" id="node-input-close_conversation" placeholder="Close">
+        <input type="checkbox" id="node-input-close_conversation" placeholder="Close" style="width: auto; margin: 0;">
     </div>
     <div class="form-row">
         <label for="node-input-close_message"><i class="fa fa-tag"></i> Close Message</label>
