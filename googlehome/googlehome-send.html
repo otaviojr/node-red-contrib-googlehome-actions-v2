@@ -15,10 +15,12 @@
           return (this.name !== "" ? "Send (" + this.name + ")" : "Google Home Send");
       },
       oneditprepare: function(){
-          $(".form-row-close-message").hide();
+          if(!this.close_conversation){
+              $(".form-row-close-message").hide();
+          }
 
-          $("#node-input-close_conversation").on("click", function(){
-              if($(this).val() == true){
+          $("#node-input-close_conversation").on("change", function(){
+              if($("#node-input-close_conversation").attr("checked") == true){
                   $(".form-row-close-message").show();
               }
           });
@@ -33,16 +35,16 @@
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
+        <label for="node-input-continue_after"><i class="fa fa-tag"></i> Continue</label>
+        <input type="checkbox" id="node-input-continue_after" placeholder="Continue" style="width: auto; margin: 0;">
+    </div>
+    <div class="form-row">
         <label for="node-input-close_conversation"><i class="fa fa-tag"></i> Close</label>
         <input type="checkbox" id="node-input-close_conversation" placeholder="Close" style="width: auto; margin: 0;">
     </div>
     <div class="form-row form-row-close-message">
         <label for="node-input-close_message"><i class="fa fa-tag"></i> Close Message</label>
         <input type="text" id="node-input-close_message" placeholder="Close Message">
-    </div>
-    <div class="form-row">
-        <label for="node-input-continue_after"><i class="fa fa-tag"></i> Continue</label>
-        <input type="checkbox" id="node-input-continue_after" placeholder="Continue" style="width: auto; margin: 0;">
     </div>
 </script>
 <script type="text/x-red" data-help-name="googlehome-send">
