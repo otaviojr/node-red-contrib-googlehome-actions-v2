@@ -76,3 +76,21 @@
       <p><b>Permissions:</b> You can type more than one permissions, comma separated. Accepted permissions are: NAME, DEVICE_PRECISE_LOCATION, DEVICE_COARSE_LOCATION, UPDATE</p>
     </div>
 </script>
+<script type="text/x-red" data-help-name="googlehome-message">
+   <p>This node can help with static messages. It will assembly the message object and set or add
+       (depending on the <code>concat</code> property) at <code>gh_messages</code> array.</p>
+   <p>The <code>concat</code> property in the node editor tells to add or set <code>gh_messages</code>.</p>
+   <h3>Output</h3>
+   <ol class="node-ports">
+      <li>Answer
+          <dl class="message-properties">
+          <dl class="message-properties">
+              <dt>msg.gh_messages <span class="property-type">array</span></dt>
+              <dd>An array of messages objects that will be sent to google assistant as an answer.</dd>
+          </dl>
+      </li>
+   </ol>
+   <h3>Details</h3>
+   <p>This node will collect all necessary data for the type of message selected and assembly the message object.</p>
+   <p>It will, then, add or set to the gh_messages array depending on the <code>concat</code> property value.</p>
+</script>

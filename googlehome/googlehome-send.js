@@ -81,6 +81,8 @@ module.exports = function(RED) {
                       msg.res.conv.close(this.closeMessage);
                   }
                   msg.res.resolv();
+              } else {
+                  msg.gh_messages = [];
               }
             }
             this.send(msg);
