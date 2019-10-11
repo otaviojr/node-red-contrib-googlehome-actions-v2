@@ -29,7 +29,7 @@ A **Controller Node** must have all **Intent Nodes** connected directly to itsel
 
 Every **Intent Node** will have at least one **Ask Node**. It can have more. The **Ask Node** have a message property that will define the default answer to the intent. It can be changed later.
 
-At **Ask Node** output comes the logic you need to answer the question. You can use the ```msg.req.params``` to have access to all parameters sent by Google Home and use them to process your answer. You can have access to the conv object at any time using the ```msg.res.conv``` property. So, if you want to know if a user is verified you can check the ```msg.res.conv.user.verification``` property.
+At **Ask Node** output comes the logic you need to answer the question. You can use the ```msg.req.params``` to have access to all parameters sent by Google Home and use them to process your answer. You can have access to the conv object at any time using the ```msg.res.conv``` property. So, if you want to know if an user is verified you can check the ```msg.res.conv.user.verification``` property.
 
 After your logic you must put all answers on the ```msg.gh_messages```. This is an array of messages that will be sent back to google home by the **Send Node**.
 
