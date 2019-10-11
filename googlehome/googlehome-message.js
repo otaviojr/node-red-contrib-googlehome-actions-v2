@@ -63,7 +63,7 @@ module.exports = function(RED) {
                     break;
             }
 
-            if(obj != null){
+            if(obj !== null){
                 if(this.concatMessage){
                     if(Array.isArray(msg.gh_messages)){
                         msg.gh_messages.push(obj);
