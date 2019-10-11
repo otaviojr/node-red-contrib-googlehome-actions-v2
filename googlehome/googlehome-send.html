@@ -19,8 +19,8 @@
               $(".form-row-close-message").hide();
           }
 
-          $("#node-input-close_conversation").on("change", function(){
-              if($("#node-input-close_conversation").attr("checked") == true){
+          $("#node-input-close_conversation").on("click", function(){
+              if($("#node-input-close_conversation")[0].checked == true){
                   $(".form-row-close-message").show();
               }
           });

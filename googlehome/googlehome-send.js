@@ -76,12 +76,10 @@ module.exports = function(RED) {
                 });
               }
 
-              if(this.closeConversation){
-                  msg.res.conv.close(this.closeMessage);
-              }
-
               if(!this.continueAfter){
                   msg.res.resolv();
+              } else if(this.closeConversation){
+                  msg.res.conv.close(this.closeMessage);
               }
             }
             this.send(msg);
