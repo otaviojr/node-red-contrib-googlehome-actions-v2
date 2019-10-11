@@ -4,14 +4,48 @@
       defaults: {
           name: {value: ""},
           close_conversation: {value: false},
-          close_message: {value: ""},
+          continue_after: {value: false},
+          close_message: {value: "", validate: function(v){
+              if(this.close_conversation && v.length == 0){
+                  return false;
+              }
+              return true;
+          }},
       },
       paletteLabel: "Send",
       icon: 'googlehome-send.png',
       outputs: 1,
       inputs: 1,
       label: function() {
-          return "Send (" + this.name + ")" || "Google Home Send";
+          return (this.name !== "" ? "Send (" + this.name + ")" : "Google Home Send");
+      },
+      oneditprepare: function(){
+          if(!this.close_conversation){
+              $(".form-row-close-message").hide();
+          }
+
+          if(this.continue_after){
+              $(".form-row-close").hide();
+          }
+
+          $("#node-input-close_conversation").on("click", function(){
+              $(".form-row-close-message").hide();
+              if($("#node-input-close_conversation")[0].checked == true){
+                  $(".form-row-close-message").show();
+              }
+          });
+
+          $("#node-input-continue_after").on("click", function(){
+              $(".form-row-close").hide();
+              $(".form-row-close-message").hide();
+              if($("#node-input-continue_after")[0].checked == false){
+                  $(".form-row-close").show();
+                  if($("#node-input-close_conversation")[0].checked == true){
+                      $(".form-row-close-message").show();
+                  }
+              }
+          });
+          //TODO: Hide close message if not closing the conversation
       }
     });
 </script>
@@ -22,16 +56,25 @@
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-        <label for="node-input-close_conversation"><i class="fa fa-tag"></i> Close</label>
-        <input type="checkbox" id="node-input-close_conversation" placeholder="Close">
+        <label for="node-input-continue_after"><i class="fa fa-tag"></i> Continue</label>
+        <input type="checkbox" id="node-input-continue_after" placeholder="Continue" style="width: auto; margin: 0;">
     </div>
-    <div class="form-row">
+    <div class="form-row form-row-close">
+        <label for="node-input-close_conversation"><i class="fa fa-tag"></i> Close</label>
+        <input type="checkbox" id="node-input-close_conversation" placeholder="Close" style="width: auto; margin: 0;">
+    </div>
+    <div class="form-row form-row-close form-row-close-message">
         <label for="node-input-close_message"><i class="fa fa-tag"></i> Close Message</label>
         <input type="text" id="node-input-close_message" placeholder="Close Message">
     </div>
 </script>
 <script type="text/x-red" data-help-name="googlehome-send">
    <p>This node finish the conversation sending all answers back to Google Assistant.</p>
+   <p>
+       If the message is only a part of the final message you can use <code>continue</code>
+       to pospone to the next Send Node. If you set the <code>continue</code> option you must have
+       another send node after this one without the <code>continue</code> option set.
+   </p>
    <p>The <code>close</code> and <code>close message</code> property in the node editor tells to close or not the conversation. Close the conversation stop the app running on the device.</p>
    <h3>Input</h3>
    <ol class="node-ports">

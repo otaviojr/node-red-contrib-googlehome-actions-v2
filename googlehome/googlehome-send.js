@@ -24,6 +24,7 @@ module.exports = function(RED) {
         this.name = config.name;
         this.closeConversation = config.close_conversation;
         this.closeMessage = config.close_message;
+        this.continueAfter = config.continue_after;
 
         this.on('input', msg => {
             this.debug("GoogleHomeSendNode - Input Message Received");
@@ -75,12 +76,16 @@ module.exports = function(RED) {
                 });
               }
 
-              if(this.closeConversation){
-                msg.res.conv.close(this.closeMessage);
+              if(!this.continueAfter){
+                  if(this.closeConversation){
+                      msg.res.conv.close(this.closeMessage);
+                  }
+                  msg.res.resolv();
+              } else {
+                  msg.gh_messages = [];
               }
-
-              msg.res.resolv();
             }
+            this.send(msg);
         });
 
         this.on('close', () => {

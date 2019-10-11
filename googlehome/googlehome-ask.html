@@ -10,7 +10,7 @@
       outputs: 1,
       inputs: 1,
       label: function() {
-          return "Ask (" + this.name + ")" || "Google Home Ask";
+          return (this.name !== "" ? "Ask (" + this.name + ")" : "Google Home Ask");
       }
     });
 </script>

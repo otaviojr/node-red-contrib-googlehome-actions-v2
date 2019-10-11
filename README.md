@@ -1,5 +1,7 @@
 # node-red-contrib-googlehome-actions-v2
 
+[![Donate](/docs/donation.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=65XBWNBZ69ZP4&currency_code=USD&source=url)
+
 NodeRed nodes to receive and respond Google Action's requests from Google Assistant.
 
 It will create the webhooks you need, without any coding, or, at least, with the fewest
@@ -114,3 +116,9 @@ The user's name will be there and you can just say the name using a **Template N
 ![say](/docs/say.png?raw=true "Say")
 
 That's it... a more complex scenario... no coding... at all!
+
+# Donation
+
+And... if this helps you to save time and money. Pay me a coffee. :-)
+
+[![Donate](/docs/donation.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=65XBWNBZ69ZP4&currency_code=USD&source=url)
