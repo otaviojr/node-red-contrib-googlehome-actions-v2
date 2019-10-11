@@ -77,9 +77,10 @@ module.exports = function(RED) {
               }
 
               if(!this.continueAfter){
+                  if(this.closeConversation){
+                      msg.res.conv.close(this.closeMessage);
+                  }
                   msg.res.resolv();
-              } else if(this.closeConversation){
-                  msg.res.conv.close(this.closeMessage);
               }
             }
             this.send(msg);
