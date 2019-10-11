@@ -18,18 +18,18 @@
       oneditprepare: function(){
         $("#node-input-message_type").on("change", function(){
 
-          $("#node-input-permissions").hide();
-          $("#node-input-message").hide();
+          $("#form_row_permissions").hide();
+          $("#form_row_message").hide();
 
           var selected = $("#node-input-message_type option:selected").val();
           switch(selected){
             case "Permission":
-              $("#node-input-permissions").show();
-              $("#node-input-message").show();
+              $("#form_row_permissions").show();
+              $("#form_row_message").show();
               break;
 
             case "SimpleResponse":
-              $("#node-input-message").show();
+              $("#form_row_message").show();
               break;
           }
         });
@@ -49,11 +49,11 @@
           <option value="Permission">Permission</option>
         </select>
     </div>
-    <div class="form-row">
+    <div class="form-row" id="form_row_message">
         <label for="node-input-message"><i class="fa fa-tag"></i> Message</label>
         <input type="text" id="node-input-message" placeholder="Message">
     </div>
-    <div class="form-row">
+    <div class="form-row" id="form_row_permissions">
         <label for="node-input-permissions"><i class="fa fa-tag"></i> Permissions</label>
         <input type="text" id="node-input-permissions" placeholder="Permissions">
     </div>
