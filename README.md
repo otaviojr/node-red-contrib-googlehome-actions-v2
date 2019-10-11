@@ -1,5 +1,7 @@
 # node-red-contrib-googlehome-actions-v2
 
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=65XBWNBZ69ZP4&currency_code=USD&source=url)
+
 NodeRed nodes to receive and respond Google Action's requests from Google Assistant.
 
 It will create the webhooks you need, without any coding, or, at least, with the fewest
