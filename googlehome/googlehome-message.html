@@ -13,7 +13,7 @@
       outputs: 1,
       inputs: 1,
       label: function() {
-          return "Send (" + this.name + ")" || "Google Home Message";
+          return (this.name !== "" ? "Send (" + this.name + ")" : "Google Home Message");
       },
       oneditprepare: function(){
         $("#node-input-message_type").on("change", function(){
@@ -21,7 +21,7 @@
           $("#node-input-permissions").hide();
           $("#node-input-message").hide();
 
-          var selected = ("#node-input-message_type option:selected").val();
+          var selected = $("#node-input-message_type option:selected").val();
           switch(selected){
             case "Permission":
               $("#node-input-permissions").show();
