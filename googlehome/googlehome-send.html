@@ -19,9 +19,25 @@
               $(".form-row-close-message").hide();
           }
 
+          if(this.continue_after){
+              $(".form-row-close").hide();
+          }
+
           $("#node-input-close_conversation").on("click", function(){
+              $(".form-row-close-message").hide();
               if($("#node-input-close_conversation")[0].checked == true){
                   $(".form-row-close-message").show();
+              }
+          });
+
+          $("#node-input-continue_after").on("click", function(){
+              $(".form-row-close").hide();
+              $(".form-row-close-message").hide();
+              if($("#node-input-continue_after")[0].checked == true){
+                  $(".form-row-close").show();
+                  if($("#node-input-close_conversation")[0].checked == true){
+                      $(".form-row-close-message").show();
+                  }
               }
           });
           //TODO: Hide close message if not closing the conversation
@@ -38,11 +54,11 @@
         <label for="node-input-continue_after"><i class="fa fa-tag"></i> Continue</label>
         <input type="checkbox" id="node-input-continue_after" placeholder="Continue" style="width: auto; margin: 0;">
     </div>
-    <div class="form-row">
+    <div class="form-row form-row-close">
         <label for="node-input-close_conversation"><i class="fa fa-tag"></i> Close</label>
         <input type="checkbox" id="node-input-close_conversation" placeholder="Close" style="width: auto; margin: 0;">
     </div>
-    <div class="form-row form-row-close-message">
+    <div class="form-row form-row-close form-row-close-message">
         <label for="node-input-close_message"><i class="fa fa-tag"></i> Close Message</label>
         <input type="text" id="node-input-close_message" placeholder="Close Message">
     </div>
