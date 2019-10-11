@@ -37,7 +37,7 @@ module.exports = function(RED) {
                 case "SimpleResponse":
                     obj = {
                         type: "SimpleResponse",
-                        Message: this.message
+                        message: this.message
                     };
                     break;
 
