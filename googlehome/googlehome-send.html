@@ -5,7 +5,12 @@
           name: {value: ""},
           close_conversation: {value: false},
           continue_after: {value: false},
-          close_message: {value: ""},
+          close_message: {value: "", validate: function(v){
+              if(this.close_conversation && v.length == 0){
+                  return false;
+              }
+              return true;
+          }},
       },
       paletteLabel: "Send",
       icon: 'googlehome-send.png',
