@@ -65,7 +65,9 @@ module.exports = function(RED) {
 
             if(obj != null){
                 if(this.concatMessage){
-                    msg.gh_messages.push(obj);
+                    if(Array.isArray(msg.gh_messages)){
+                        msg.gh_messages.push(obj);                        
+                    }
                 } else {
                     msg.gh_messages = [obj];
                 }
