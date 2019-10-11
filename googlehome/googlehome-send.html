@@ -4,6 +4,7 @@
       defaults: {
           name: {value: ""},
           close_conversation: {value: false},
+          continue_after: {value: false},
           close_message: {value: ""},
       },
       paletteLabel: "Send",
@@ -14,7 +15,14 @@
           return (this.name !== "" ? "Send (" + this.name + ")" : "Google Home Send");
       },
       oneditprepare: function(){
-        //TODO: Hide close message if not closing the conversation
+          $(".form-row-close-message").hide();
+
+          $("#node-input-close_conversation").on("click", function(){
+              if($(this).val() == true){
+                  $(".form-row-close-message").show();
+              }
+          });
+          //TODO: Hide close message if not closing the conversation
       }
     });
 </script>
@@ -28,9 +36,13 @@
         <label for="node-input-close_conversation"><i class="fa fa-tag"></i> Close</label>
         <input type="checkbox" id="node-input-close_conversation" placeholder="Close" style="width: auto; margin: 0;">
     </div>
-    <div class="form-row">
+    <div class="form-row form-row-close-message">
         <label for="node-input-close_message"><i class="fa fa-tag"></i> Close Message</label>
         <input type="text" id="node-input-close_message" placeholder="Close Message">
+    </div>
+    <div class="form-row">
+        <label for="node-input-continue_after"><i class="fa fa-tag"></i> Continue</label>
+        <input type="checkbox" id="node-input-continue_after" placeholder="Continue" style="width: auto; margin: 0;">
     </div>
 </script>
 <script type="text/x-red" data-help-name="googlehome-send">
