@@ -15,7 +15,7 @@
       "googlehome-intent": "googlehome/googlehome-intent.js",
       "googlehome-ask": "googlehome/googlehome-ask.js",
       "googlehome-send": "googlehome/googlehome-send.js",
-      "googlehome-send": "googlehome/googlehome-message.js"
+      "googlehome-message": "googlehome/googlehome-message.js"
     }
   },
   "repository": {
