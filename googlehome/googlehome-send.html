@@ -65,6 +65,11 @@
 </script>
 <script type="text/x-red" data-help-name="googlehome-send">
    <p>This node finish the conversation sending all answers back to Google Assistant.</p>
+   <p>
+       If the message is only a part of the final message you can use <code>continue</code>
+       to pospone to the next Send Node. If you set the <code>continue</code> option you must have
+       another send node after this one.
+   </p>
    <p>The <code>close</code> and <code>close message</code> property in the node editor tells to close or not the conversation. Close the conversation stop the app running on the device.</p>
    <h3>Input</h3>
    <ol class="node-ports">
