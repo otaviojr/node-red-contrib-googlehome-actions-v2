@@ -10,7 +10,7 @@
       outputs: 1,
       inputs: 1,
       label: function() {
-          return "Intent (" + this.name + ")" || "Google Home Intent";
+          return (this.name !== "" ? "Intent (" + this.name + ")" : "Google Home Intent");
       }
     });
 </script>

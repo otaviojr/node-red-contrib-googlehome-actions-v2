@@ -11,7 +11,7 @@
       outputs: 1,
       inputs: 1,
       label: function() {
-          return "Send (" + this.name + ")" || "Google Home Send";
+          return (this.name !== "" ? "Send (" + this.name + ")" : "Google Home Send");
       }
     });
 </script>

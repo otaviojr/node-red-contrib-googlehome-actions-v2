@@ -9,7 +9,7 @@
       outputs: 2,
       inputs: 1,
       label: function() {
-          return "Controller (" + this.name + ")" || "Google Home Controller";
+          return (this.name !== "" ? "Controller (" + this.name + ")" : "Google Home Controller");
       }
     });
 </script>
