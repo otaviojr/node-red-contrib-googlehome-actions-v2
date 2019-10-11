@@ -56,7 +56,7 @@ module.exports = function(RED) {
                             type: "permission",
                             permission: {
                                 context: this.message,
-                                permissions: this.permissions.split(",");
+                                permissions: this.permissions.split(",")
                             }
                         };
                     }
