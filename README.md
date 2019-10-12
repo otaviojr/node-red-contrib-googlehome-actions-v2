@@ -117,6 +117,26 @@ The user's name will be there and you can just say the name using a **Template N
 
 That's it... a more complex scenario... no coding... at all!
 
+# SSML
+
+Yes, it can be used.
+
+It will be something like this:
+
+```
+[{
+    "type": "SimpleResponse",
+    "message": "<speak>My name is bond. <break time=\"1000ms\"/>James Bond.</speak>"
+}]
+```
+
+# Message Node
+
+The Message Node is optional. If you don't want to assembly the response JSON by yourself. Get a look at it.
+
+You can use a fixed value, or, send a property inside ```msg.payload``` and this node will assembly the
+message and add or set it to ```msg.gh_messages``` for you.
+
 # Donation
 
 And... if this helps you to save time and money. Pay me a coffee. :-)
