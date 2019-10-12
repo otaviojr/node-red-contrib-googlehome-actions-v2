@@ -1,6 +1,6 @@
 # node-red-contrib-googlehome-actions-v2
 
-[![Donate](/docs/donation.png?raw=true)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=65XBWNBZ69ZP4&currency_code=USD&source=url){:target="_blank"}
+[go][![Donate](/docs/donation.png?raw=true)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=65XBWNBZ69ZP4&currency_code=USD&source=url){:target="_blank"}.
 
 NodeRed nodes to receive and respond Google Action's requests from Google Assistant.
 
@@ -121,4 +121,4 @@ That's it... a more complex scenario... no coding... at all!
 
 And... if this helps you to save time and money. Pay me a coffee. :-)
 
-[![Donate](/docs/donation.png?raw=true)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=65XBWNBZ69ZP4&currency_code=USD&source=url){:target="_blank"}
+[![Donate](/docs/donation.png?raw=true)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=65XBWNBZ69ZP4&currency_code=USD&source=url)
