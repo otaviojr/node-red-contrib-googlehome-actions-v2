@@ -21,6 +21,7 @@
 
           $(".form-row-permissions").hide();
           $(".form-row-message").hide();
+          $(".form-row-simple-response").hide();
           $(".form-row-url").hide();
 
           var selected = $("#node-input-message_type option:selected").val();
@@ -36,6 +37,7 @@
 
             case "SimpleResponse":
                 $(".form-row-message").show();
+                $(".form-row-simple-response").show();
                 break;
           }
         });
@@ -74,6 +76,13 @@
     </div>
     <div class="form-tips form-row-permissions">
       <p><b>Permissions:</b> You can type more than one permissions, comma separated. Accepted permissions are: NAME, DEVICE_PRECISE_LOCATION, DEVICE_COARSE_LOCATION, UPDATE</p>
+      <p>The message and permissions values informed here will be overwritten by <code>msg.payload.message</code> and <code>msg.payload.permissions</code> if present</p>
+    </div>
+    <div class="form-tips form-row-simple-response">
+      <p>The message value informed here will be overwritten by <code>msg.payload.message</code> if present</p>
+    </div>
+    <div class="form-tips form-row-url">
+      <p>The url value informed here will be overwritten by <code>msg.payload.url</code> if present</p>
     </div>
 </script>
 <script type="text/x-red" data-help-name="googlehome-message">

@@ -32,12 +32,16 @@ module.exports = function(RED) {
             this.debug("GoogleHomeMessageNode - Input Message Received");
             this.log(msg);
 
+            const message = msg.payload.message || this.message;
+            const url = msg.payload.url || this.url;
+            const permissions = msg.payload.permissions || this.permissions;
+
             let obj = null;
             switch(this.messageType){
                 case "SimpleResponse":
                     obj = {
                         type: "SimpleResponse",
-                        message: this.message
+                        message: message
                     };
                     break;
 
@@ -45,18 +49,18 @@ module.exports = function(RED) {
                     obj = {
                         type: "link",
                         message: {
-                            url: this.url
+                            url: url
                         }
                     };
                     break;
 
                 case "Permission":
-                    if(this.permissions.length > 0){
+                    if(permissions.length > 0){
                         obj = {
                             type: "permission",
                             permission: {
-                                context: this.message,
-                                permissions: this.permissions.split(",")
+                                context: message,
+                                permissions: permissions.split(",")
                             }
                         };
                     }
