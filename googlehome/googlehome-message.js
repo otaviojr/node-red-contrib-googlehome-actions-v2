@@ -32,9 +32,9 @@ module.exports = function(RED) {
             this.debug("GoogleHomeMessageNode - Input Message Received");
             this.log(msg);
 
-            const message = msg.payload.message || this.message;
-            const url = msg.payload.url || this.url;
-            const permissions = msg.payload.permissions || this.permissions;
+            const message = (msg.payload !== undefined && msg.payload.message !== undefined ?  msg.payload.message : this.message);
+            const url = (msg.payload !== undefined && msg.payload.url !== undefined ? msg.payload.url : this.url);
+            const permissions = (msg.payload !== undefined && msg.payload.permissions !== undefined ? msg.payload.permissions : this.permissions);
 
             let obj = null;
             switch(this.messageType){
