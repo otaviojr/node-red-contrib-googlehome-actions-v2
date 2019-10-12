@@ -7,6 +7,7 @@
           message: {value: ""},
           permissions: {value: ""},
           url: {value: ""},
+          suggestions: {value: ""},
           concat_message: {value: false}
       },
       paletteLabel: "Message",
@@ -23,6 +24,7 @@
           $(".form-row-message").hide();
           $(".form-row-simple-response").hide();
           $(".form-row-url").hide();
+          $(".form-row-suggestions").hide();
 
           var selected = $("#node-input-message_type option:selected").val();
           switch(selected){
@@ -38,6 +40,10 @@
             case "SimpleResponse":
                 $(".form-row-message").show();
                 $(".form-row-simple-response").show();
+                break;
+
+            case "Suggestions":
+                $(".form-row-suggestions").show();
                 break;
           }
         });
@@ -56,6 +62,7 @@
             <option value="SimpleResponse">SimpleResponse</option>
             <option value="Permission">Permission</option>
             <option value="LinkOutSuggestion">LinkOutSuggestion</option>
+            <option value="Suggestions">Suggestions</option>
         </select>
     </div>
     <div class="form-row form-row-message">
@@ -70,6 +77,10 @@
         <label for="node-input-url"><i class="fa fa-tag"></i> URL</label>
         <input type="text" id="node-input-url" placeholder="URL">
     </div>
+    <div class="form-row form-row-suggestions">
+        <label for="node-input-suggestions"><i class="fa fa-tag"></i> Suggestions</label>
+        <input type="text" id="node-input-suggestions" placeholder="Suggestions">
+    </div>
     <div class="form-row">
         <label for="node-input-concat_message"><i class="fa fa-tag"></i> Concat</label>
         <input type="checkbox" id="node-input-concat_message" placeholder="Concat" style="width: auto; margin: 0;">
@@ -83,6 +94,10 @@
     </div>
     <div class="form-tips form-row-url">
       <p>The url value informed here will be overwritten by <code>msg.payload.url</code> if present</p>
+    </div>
+    <div class="form-tips form-row-suggestions">
+        <p><b>Suggestions:</b> You can type more than one suggestion, comma separated.</p>
+        <p>The suggestions value informed here will be overwritten by <code>msg.payload.suggestions</code> if present</p>
     </div>
 </script>
 <script type="text/x-red" data-help-name="googlehome-message">

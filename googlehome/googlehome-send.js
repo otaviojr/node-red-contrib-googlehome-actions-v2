@@ -10,7 +10,8 @@ const {
   HtmlResponse,
   OpenUrlAction,
   BrowseCarousel,
-  Permission
+  Permission,
+  Suggestions
 } = require('actions-on-google');
 
 module.exports = function(RED) {
@@ -70,6 +71,10 @@ module.exports = function(RED) {
 
                             case "permission":
                                 msg.res.conv.ask(new Permission(m.permission));
+                                break;
+
+                            case "suggestions":
+                                msg.res.conv.ask(new Suggestions(m.suggestions));
                                 break;
                         }
                     }

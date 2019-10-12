@@ -26,6 +26,7 @@ module.exports = function(RED) {
         this.message = config.message;
         this.permissions = config.permissions;
         this.url = config.url;
+        this.suggestions = config.suggestions;
         this.concatMessage = config.concat_message;
 
         this.on('input', msg => {
@@ -35,6 +36,7 @@ module.exports = function(RED) {
             const message = (msg.payload !== undefined && msg.payload.message !== undefined ?  msg.payload.message : this.message);
             const url = (msg.payload !== undefined && msg.payload.url !== undefined ? msg.payload.url : this.url);
             const permissions = (msg.payload !== undefined && msg.payload.permissions !== undefined ? msg.payload.permissions : this.permissions);
+            const suggestions = (msg.payload !== undefined && msg.payload.suggestions !== undefined ? msg.payload.suggestions : this.suggestions);
 
             let obj = null;
             switch(this.messageType){
@@ -62,6 +64,15 @@ module.exports = function(RED) {
                                 context: message,
                                 permissions: permissions.split(",")
                             }
+                        };
+                    }
+                    break;
+
+                case "Suggestions":
+                    if(suggestions.length > 0){
+                        obj = {
+                            type: "suggestions",
+                            suggestions:  suggestions.split(",")
                         };
                     }
                     break;
